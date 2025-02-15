@@ -7,11 +7,42 @@ require:
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
 
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+
+Lint/SuppressedException:
+  AllowComments: true
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "config/environments/*"
+    - "config/routes.rb"
+    - "db/migrate/*"
+
+Metrics/ClassLength:
+  CountAsOne: ["array", "hash", "heredoc"]
+
+Metrics/MethodLength:
+  CountAsOne: ["array", "hash", "heredoc"]
+  Exclude:
+    - "db/migrate/*"
+
+Naming/VariableNumber:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 20
+  CountAsOne: ["array", "hash", "heredoc"]
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/ImplicitSubject: 
+  EnforcedStyle: single_statement_only
+
+Style/Documentation:
+  Enabled: false
