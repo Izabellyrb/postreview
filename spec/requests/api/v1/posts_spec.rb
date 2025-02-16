@@ -11,7 +11,6 @@ RSpec.describe Api::V1::PostsController do
       it { expect(response).to have_http_status(:created) }
       it { expect(response.parsed_body["message"]["user"]).to include "login@test.com" }
       it { expect(response.parsed_body["message"]["post"]).to include "MyTitle" }
-
     end
 
     context "when failure" do

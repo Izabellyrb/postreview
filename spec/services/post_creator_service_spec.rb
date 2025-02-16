@@ -4,7 +4,7 @@ RSpec.describe PostCreatorService do
   describe ".call" do
     subject(:result) { described_class.new(post_params, user_login, ip).call }
 
-    let(:post_params) { { title: "MyTitle", body: "MyContent"} }
+    let(:post_params) { { title: "MyTitle", body: "MyContent" } }
     let(:user_login) { "mylogin@test.com" }
     let(:ip) { "111.11.1.1" }
 
