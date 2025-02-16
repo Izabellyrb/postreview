@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      users:
+    messages:
+      invalid_login: must be a valid email address (e.g., user@example.com)

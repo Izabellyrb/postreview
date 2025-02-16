@@ -5,6 +5,7 @@
         "lines": [
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -33,17 +34,64 @@
           1,
           1,
           null,
+          null,
+          null,
+          null,
           1,
           1,
           null
         ]
       },
+      "/app/app/controllers/api/v1/posts_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          10,
+          null,
+          10,
+          null,
+          null,
+          1,
+          null,
+          1,
+          10,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/app/app/controllers/application_controller.rb": {
         "lines": [
-          0,
-          0
-        ],
-        "branches": {}
+          1,
+          null
+        ]
+      },
+      "/app/app/services/post_creator_service.rb": {
+        "lines": [
+          1,
+          1,
+          17,
+          17,
+          17,
+          null,
+          null,
+          1,
+          17,
+          17,
+          15,
+          null,
+          9,
+          null,
+          null,
+          7,
+          null,
+          1,
+          null,
+          null
+        ]
       },
       "/app/app/jobs/application_job.rb": {
         "lines": [
@@ -67,6 +115,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1739720848
+    "timestamp": 1739745197
   }
 }
