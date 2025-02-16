@@ -18,11 +18,14 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
+  username: <%= ENV.fetch("POSTGRES_USER") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
 
 
 development:
   <<: *default
-  database: postreview_development
+  database: <%= ENV.fetch("POSTGRES_DB") %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -56,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: postreview_test
+  database: <%= ENV.fetch("POSTGRES_TEST_DB", "postreview_test") %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,18 +84,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: postreview_production
-    username: postreview
-    password: <%= ENV["POSTREVIEW_DATABASE_PASSWORD"] %>
+    database: <%= ENV.fetch("POSTGRES_PRODUCTION_DB", "postreview_production") %> 
   cache:
     <<: *primary_production
-    database: postreview_production_cache
+    database: <%= ENV.fetch("POSTGRES_PRODUCTION_DB", "postreview_production") %> 
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: postreview_production_queue
+    database: <%= ENV.fetch("POSTGRES_PRODUCTION_DB", "postreview_production") %> 
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: postreview_production_cable
+    database: <%= ENV.fetch("POSTGRES_PRODUCTION_DB", "postreview_production") %> 
     migrations_paths: db/cable_migrate

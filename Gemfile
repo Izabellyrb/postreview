@@ -60,6 +60,8 @@ group :development, :test do
   gem "rspec-rails", "~> 6.1"
 
   gem "pry-remote"
+
+  gem "dotenv-rails"
 end
 
 group :test do
