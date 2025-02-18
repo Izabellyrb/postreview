@@ -28,6 +28,8 @@ RSpec.describe PostCreatorService do
       context "when any data is missing" do
         let(:post_params) { { title: "", body: "MyContent" } }
 
+        before { result }
+
         it { expect(Post.count).to eq(0) }
         it { expect(User.count).to eq(0) }
       end
