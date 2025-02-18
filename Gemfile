@@ -51,7 +51,7 @@ group :development, :test do
 
   gem "rubocop-factory_bot", "!= 2.26.0", require: false
 
-  gem "rubocop-performance", "1.19.0"
+  gem "rubocop-performance", "1.24.0"
 
   gem "rubocop-rspec", "2.23.2"
 
