@@ -61,6 +61,8 @@ group :development, :test do
 
   gem "pry-remote"
 
+  gem "pry"
+
   gem "dotenv-rails"
 end
 

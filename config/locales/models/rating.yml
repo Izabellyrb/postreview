@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      ratings:
+    messages:
+      single_vote: '- you can only vote once per post'

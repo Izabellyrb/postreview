@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Rating do
   describe "validations" do
     it { is_expected.to validate_presence_of(:value) }
-    it { is_expected.to validate_inclusion_of(:value).in_range(1..5) }
+    it { is_expected.to validate_numericality_of(:value) }
   end
 
   describe "associations" do

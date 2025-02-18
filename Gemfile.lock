@@ -375,6 +375,7 @@ DEPENDENCIES
   factory_bot_rails
   kamal
   pg (~> 1.1)
+  pry
   pry-remote
   puma (>= 5.0)
   rails (~> 8.0.1)
