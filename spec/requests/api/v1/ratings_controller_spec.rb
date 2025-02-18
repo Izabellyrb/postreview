@@ -68,4 +68,24 @@ RSpec.describe Api::V1::RatingsController, type: :request do
       end
     end
   end
+
+  describe "GET /api/v1/ratings/ranking" do
+    let(:users) { create_list(:user, 3) }
+    let(:posts) { create_list(:post, 3) }
+
+    before do
+      users
+      posts
+      create(:rating, post: posts[1], value: 4, user: users[1])
+      create(:rating, post: posts[2], value: 3, user: users[2])
+      create(:rating, post: posts[1], value: 3, user: users[0])
+    end
+
+    it "returns top posts by average rating" do
+      get "/api/v1/ratings/ranking"
+
+      expect(response).to have_http_status(:ok)
+      expect(response.parsed_body["post_ranking"].first["id"]).to eq(posts[1].id)
+    end
+  end
 end

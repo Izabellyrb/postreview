@@ -7,6 +7,12 @@ module Api
         render json: { message: result[:message] }, status: result[:status]
       end
 
+      def ranking
+        result = PostAnalyticsService.post_ranking
+
+        render json: { post_ranking: result }
+      end
+
       private
 
       def rating_params
