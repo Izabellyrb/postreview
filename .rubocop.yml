@@ -16,6 +16,9 @@ Layout/MultilineMethodArgumentLineBreaks:
 Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: true
 
+Layout/LineLength:
+  Enabled: true
+
 Lint/SuppressedException:
   AllowComments: true
 
