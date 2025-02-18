@@ -64,6 +64,12 @@ group :development, :test do
   gem "pry"
 
   gem "dotenv-rails"
+
+  gem "httparty"
+
+  gem "faker"
+
+  gem "parallel"
 end
 
 group :test do
