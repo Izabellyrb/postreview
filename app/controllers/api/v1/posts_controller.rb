@@ -7,6 +7,12 @@ module Api
         render json: { message: result[:message] }, status: result[:status]
       end
 
+      def recurrent_ips
+        result = PostAnalyticsService.recurrent_ips
+
+        render json: { recurrent_ips: result }
+      end
+
       private
 
       def post_params

@@ -10,7 +10,8 @@ class PostCreatorService
       user = User.find_or_create_by!(login: @user_login)
       post = Post.create!(@params.merge(ip: @ip, user: user))
 
-      { message: { post: [ post.title, post.body, post.ip, post.created_at ], user: user.login }, status: :created }
+      { message: { title: post.title, body: post.body, ip: post.ip, created_at: post.created_at, author: user.login },
+        status: :created }
     end
   rescue ActiveRecord::RecordInvalid => e
     { message: e.record.errors.full_messages, status: :unprocessable_entity }
