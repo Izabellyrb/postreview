@@ -7,7 +7,9 @@ class RatingCreatorService
     ActiveRecord::Base.transaction do
       rating = Rating.create!(@params)
 
-      { message: { average_rating: PostAnalyticsService.post_average_rating(rating.post_id) }, status: :created }
+      average_rating = PostAnalyticsService.post_average_rating(rating.post_id)
+
+      { message: { average_rating: average_rating }, status: :created }
     end
   rescue ActiveRecord::RecordInvalid => e
     { message: e.record.errors.full_messages, status: :unprocessable_entity }
