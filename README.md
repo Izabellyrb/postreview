@@ -25,36 +25,36 @@ This project is a backend application for managing post creation and rating, whe
 
 1. Clone the repository:
 ```bash
-	git clone git@github.com:Izabellyrb/postreview.git
-	# or git clone https://github.com/Izabellyrb/postreview.git
-	cd postreview
+git clone git@github.com:Izabellyrb/postreview.git
+# or git clone https://github.com/Izabellyrb/postreview.git
+cd postreview
 ```
 
 2. Rename the `env_example.txt` file to `.env`
-	```bash
-	mv env_example.txt .env
-	```
-
-3. Fill in the variables in the `.env` with your environment values.
-
-4. Build the Docker containers and start the project:
 ```bash
-    docker-compose build
-    docker-compose up
+mv env_example.txt .env
 ```
 
-5. If you want, you can populate the db (200k posts / 150k ratings):
+1. Fill in the variables in the `.env` with your environment values.
+
+2. Build the Docker containers and start the project:
 ```bash
-	docker exec -it postreview /bin/bash
-    rails db:seed
+docker compose build
+docker compose up
+```
+
+1. If you want, you can populate the db (200k posts / 150k ratings):
+```bash
+docker exec -it postreview /bin/bash
+rails db:seed
 ```
 
 ## Running Tests
 To run the tests, execute the following command:
 
 ```bash
-	docker exec -it postreview /bin/bash
-	bundle exec rspec
+docker exec -it postreview /bin/bash
+bundle exec rspec
 ```
 
 ## API Endpoints
@@ -69,24 +69,24 @@ To run the tests, execute the following command:
 
 #### Request Body:
 ```bash
-	{
+{
 	"post": {
-		"title": "New Post",
-		"body": "This is the content of the post."
+	"title": "New Post",
+	"body": "This is the content of the post."
 	},
 	"user_login": "your_email@example.com"
-	}
+}
 ```
 ### Success Response [200]:
 ```bash
 {
 	"message": {
-	"title": "New Post",
-	"body": "This is the content of the post.",
-	"ip": "111.11.0.1",
-	"created_at": "2025-02-18T02:08:35.932Z",
-	"author": "your_email@example.com"
-	}
+		"title": "New Post",
+		"body": "This is the content of the post.",
+		"ip": "111.11.0.1",
+		"created_at": "2025-02-18T02:08:35.932Z",
+		"author": "your_email@example.com"
+		}
 }
 ```
 
@@ -103,9 +103,9 @@ To run the tests, execute the following command:
 {
 	"rating":
 	{
-	 "value": 1,
-	 "post_id": 3,
-	 "user_id": 2
+		"value": 1,
+		"post_id": 3,
+		"user_id": 2
 	}
 }
 ```
@@ -127,7 +127,7 @@ To run the tests, execute the following command:
 ### Success Response [200]:
 ```bash
 {
-	"post_ranking": [
+"post_ranking": [
 	{
 		"id": 2,
 		"title": "The Title",
@@ -149,12 +149,12 @@ To run the tests, execute the following command:
 ### Success Response [200]:
 ```bash
 {
-	"recurrent_ips": [
-	{
+"recurrent_ips": [
+		{
 		"ip": "333.33.33.3",
 		"logins": "example@a.com.br, example@a.com, bla@example.com, error@example.com, your_email@mail.com",
 		"id": null
-	}
+		}
 	]
 }
 ```
@@ -175,12 +175,12 @@ To run the tests, execute the following command:
 #### Internal_server_error [500] (This occurs when an unexpected error or issue rises during processing.)
  ```json
 {
-    "message": "Something wrong happend. Contact us to report - [Error message]."
+		"message": "Something wrong happend. Contact us to report - [Error message]."
 }
 ```
 
 ## Decisions and Assumptions
-- Post creation: The request returns only the user login, to avoid providing unecessary data.
+- Post creation: I decided to use an email as login, since the users database only have this field. The request returns only the user login (without id, created_at/updated_at), to avoid providing unecessary data.
 - Ranking: The ranking is limited to the top 5 posts with the highest average ratings. But can be changed on PostAnalytics Service.
 - Ranking: To ensure that multiple requests do not affect the average calculation, the average calculation was moved inside a transaction.
 - Services: Used services to help maintain a clean and organized architecture, allowing reusability and scalability. The controller remains focused on handling HTTP requests and responses.
