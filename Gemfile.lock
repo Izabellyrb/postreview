@@ -270,7 +270,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.72.1)
+    rubocop (1.72.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -294,10 +294,12 @@ GEM
     rubocop-performance (1.19.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.20.2)
+    rubocop-rails (2.30.2)
       activesupport (>= 4.2.0)
+      lint_roller (~> 1.1)
       rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
+      rubocop (>= 1.72.1, < 2.0)
+      rubocop-ast (>= 1.38.0, < 2.0)
     rubocop-rails-omakase (1.0.0)
       rubocop
       rubocop-minitest
@@ -394,7 +396,7 @@ DEPENDENCIES
   rspec-rails (~> 6.1)
   rubocop-factory_bot (!= 2.26.0)
   rubocop-performance (= 1.19.0)
-  rubocop-rails (= 2.20.2)
+  rubocop-rails (= 2.30.2)
   rubocop-rails-omakase
   rubocop-rspec (= 2.23.2)
   rubocop-rspec_rails (!= 2.29.0)
