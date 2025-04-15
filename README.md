@@ -43,7 +43,7 @@ docker compose build
 docker compose up
 ```
 
-1. If you want, you can populate the db (200k posts / 150k ratings):
+1. If you want, you can populate the db (≈ 200k posts / ≈ 150k ratings):
 ```bash
 docker exec -it postreview /bin/bash
 rails db:seed

@@ -14,8 +14,6 @@ RSpec.describe PostAnalyticsService do
   end
 
   describe '.post_average_rating' do
-    subject(:result) { described_class.post_average_rating }
-
     context 'when the post has ratings' do
       before do
         create(:rating, post: posts[1], value: 5, user: users[2])
