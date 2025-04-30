@@ -54,7 +54,7 @@ group :development, :test do
 
   gem "rubocop-rspec_rails", "!= 2.29.0", require: false
 
-  gem "rspec-rails", "~> 6.1"
+  gem "rspec-rails", "~> 8.0"
 
   gem "pry-remote"
 
